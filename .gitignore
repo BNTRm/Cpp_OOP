@@ -1,0 +1,13 @@
+# Directories
+/.vs/*
+/Cpp_OOP/Debug/*
+
+# Files
+/Cpp_OOP/Cpp_OOP.vcxproj
+/Cpp_OOP/Cpp_OOP.vcxproj.filters
+/Cpp_OOP/Cpp_OOP.vcxproj.user
+
+# Types
+*.exe
+*.ilk
+*.pdb
