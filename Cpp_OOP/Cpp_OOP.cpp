@@ -47,43 +47,43 @@ public:
 
 class Stack {
 private:
-    int arr[10], length;
+    int arr[10], length = 0;
 public:
     void reset() {
         for (size_t i = 0; i < 10; i++) {
-            arr[i] = 0;
+            arr[i] = NULL;
         }
 
         length = 0;
     }
     bool push(int val) {
-        for (size_t i = 0; i < 10; i++) {
-            if (arr[i] == 0) {
-                arr[i] = val;
-                return true;
-            }
+        if (length == 10) {
+            return false;
         }
 
-        return false;
+        arr[length] = val;
+
+        length++;
+
+        return true;
     }
     int pop() {
-        for (size_t i = 9; i >= 0; i--) {
-            if (arr[i] != 0) {
-                arr[i] = 0;
-                return arr[i];
-            }
+        if (length > 0) {
+            int val = arr[length - 1];
+
+            length--;
+            arr[length] = NULL;
+
+            return val;
         }
 
         cout << "Stack is empty" << endl;
-        return 0;
     }
     void print() {
         cout << "( ";
 
-        for (size_t i = 0; i < 10; i++) {
-            if (arr[i] != 0) {
-                cout << arr[i] << " ";
-            }
+        for (size_t i = 0; i < length; i++) {
+            cout << arr[i] << " ";
         }
 
         cout << ")" << endl;
@@ -120,5 +120,7 @@ int main()
     stack.pop();
     stack.pop();
     stack.print();
+
+    stack.pop();
 
 }
